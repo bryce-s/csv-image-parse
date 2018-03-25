@@ -37,6 +37,10 @@ class ImageProcessor(object):
             print("an image doesn't have a match")
         if len(intersection) != len(back_keys):
             print("an image doesn't have a match")
+        self.allNumbers = list(intersection)
+
+    def getAllNumbers(self):
+        return self.allNumbers
 
     def processImages(self, directoryName: str):
         for root, dirs, files in os.walk(directoryName):
