@@ -10,8 +10,8 @@ Input:
 A directory containing images n-f.png for front, and n-b.png for back.
 ```
 inputDirectory
-├── 1-b.png
-└── 1-f.png
+├── 0-b.png
+└── 0-f.png
 ```
 
 Result:
