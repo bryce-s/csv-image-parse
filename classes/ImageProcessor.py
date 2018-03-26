@@ -23,6 +23,12 @@ class ImageProcessor(object):
             print("trying to insert multiple images with same number")
             exit()
 
+    def getFrontsStringName(self, number: int):
+        return self.fronts[number]
+
+    def getBacksStringName(self, number: int):
+        return self.backs[number]
+
     @staticmethod
     def getIntegerTag(fileName: str):
         result = fileName.split('-')
@@ -40,7 +46,7 @@ class ImageProcessor(object):
         self.allNumbers = list(intersection)
 
     def getAllNumbers(self):
-        return self.allNumbers
+        return self.allNumber
 
     def processImages(self, directoryName: str):
         for root, dirs, files in os.walk(directoryName):
