@@ -46,7 +46,7 @@ class ImageProcessor(object):
         self.allNumbers = list(intersection)
 
     def getAllNumbers(self):
-        return self.allNumber
+        return self.allNumbers
 
     def processImages(self, directoryName: str):
         for root, dirs, files in os.walk(directoryName):

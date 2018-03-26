@@ -27,7 +27,7 @@ class CSV_Writer(object):
            logs in csv file"""
         if not os.path.exists(outputDirectoryName):
             os.makedirs(outputDirectoryName)
-        with open(outputDirectoryName + '/output.csv', 'rb') as csvFile:
+        with open(outputDirectoryName + '/output.csv', 'w+') as csvFile:
             writer = csv.writer(csvFile, delimiter=',')
             for number in self.lineNumbers:
                 frontString = self.imageProcess.getFrontsStringName(number)
