@@ -20,7 +20,16 @@ class CSV_Writer(object):
 
     def generateRandomImageString(self):
         """returns a random string for the image-name"""
-        return str(uuid.uuid4)
+        return str(uuid.uuid4()) + '.png'
+
+    def renamePNGFile(
+            self,
+            outputDirectoryName: str,
+            name: str,
+            randomString: str):
+        """args: outfile dir, target file name, name to rename to"""
+        os.rename(outputDirectoryName + '/' + name,
+                  outputDirectoryName + '/' + randomString)
 
     def writeCSV(self, outputDirectoryName, inputDirectoryName):
         """takes filenames from input dir adt, copies to output dir, renames, and
@@ -40,14 +49,15 @@ class CSV_Writer(object):
                     outputDirectoryName)
                 frontStringRandomized = self.generateRandomImageString()
                 backStringRandomized = self.generateRandomImageString()
-                os.rename(
-                    outputDirectoryName + '/' + frontString,
-                    frontStringRandomized + '.png')
-                os.rename(
-                    outputDirectoryName + '/' + backString,
-                    backStringRandomized + 'png')
-
+                self.renamePNGFile(
+                    outputDirectoryName,
+                    frontString,
+                    frontStringRandomized)
+                self.renamePNGFile(
+                    outputDirectoryName,
+                    backString,
+                    backStringRandomized)
                 writer.writerow(
-                    self.combineToHTML_Tag(frontStringRandomized),
-                    self.combineToHTML_Tag(backStringRandomized))
+                    [self.combineToHTML_Tag(frontStringRandomized),
+                     self.combineToHTML_Tag(backStringRandomized)])
                 # copy the original image, too..
