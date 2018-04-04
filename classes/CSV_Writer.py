@@ -15,7 +15,7 @@ class CSV_Writer(object):
 
     def combineToHTML_Tag(self, tag: str):
         front = str("<img src='")
-        back = str("'>")
+        back = str("'/>")
         return front + tag + back
 
     def generateRandomImageString(self):
