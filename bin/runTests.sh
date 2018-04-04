@@ -1,9 +1,8 @@
 set -x
-for directory in /tests/;
+for directory in tests/*;
 do
-    echo "$directory"
-    if [ -d "${D}" ]; then
-    rm -rf tests/$directory/output
-    python3 csvCardParse.py tests/$directory/input tests/$directory/output
+    if [ -d "${directory}" ]; then
+    rm -rf $directory/output
+    python3 csvCardParse.py $directory/input $directory/output
     fi
 done
