@@ -27,3 +27,6 @@ outputDirectory:
 Field0 | Field1
 --- | ---
  | `<img src='0912379082173097120987.png'>` | `<img sr='1210983091283091289030.png'>`
+
+# Dev Notes:
+``ln -s ../classes/ .`` creates a symbolic link to classes from unittest dir.
